@@ -1,0 +1,75 @@
+name: 不具合の報告
+description: ゲームが思ったとおりに動かないとき
+title: "[不具合] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        報告ありがとうございます。わかる範囲で書いてください。
+
+        **API キーや `data/.env` の中身は、絶対に貼らないでください。** Issues は誰でも読めます。
+        ログやエラーを貼るときは、`C:\Users\<名前>` のようなユーザー名が入っていないか確かめ、気になる部分は `***` などに書き換えてください。
+  - type: input
+    id: version
+    attributes:
+      label: 版
+      description: ゲームの [設定] 画面の「いまの版」か、黒い窓の最初の行 (「ギルドマスターを起動します (版 …)」) にあります
+      placeholder: "例: 1.0.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: windows
+    attributes:
+      label: Windows の版
+      options:
+        - Windows 11
+        - Windows 10
+        - わからない
+    validations:
+      required: true
+  - type: dropdown
+    id: ai
+    attributes:
+      label: 使っている AI
+      multiple: true
+      options:
+        - 使っていない (定型のお話)
+        - Claude CLI
+        - Codex CLI
+        - Gemini
+        - OpenAI
+        - Claude API
+        - わからない
+  - type: textarea
+    id: what
+    attributes:
+      label: 何が起きたか
+      description: 何をしたら、どうなったか。画面の写真 (スクリーンショット) があればここに貼ってください
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 本当はどうなってほしかったか
+  - type: textarea
+    id: steps
+    attributes:
+      label: もう一度起こす手順 (わかれば)
+      placeholder: |
+        1.
+        2.
+        3.
+  - type: textarea
+    id: log
+    attributes:
+      label: 黒い窓に出た文・ログ (あれば)
+      description: ログは `GuildMaster\data\logs\` の `launcher.log` と `server.log` です。最後のほうの数十行で十分です
+      render: text
+  - type: checkboxes
+    id: secrets
+    attributes:
+      label: 確認
+      options:
+        - label: API キーや `data/.env` の中身を貼っていません
+          required: true
