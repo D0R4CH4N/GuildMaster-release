@@ -71,5 +71,5 @@ body:
     attributes:
       label: 確認
       options:
-        - label: API キーや `data/.env` の中身を貼っていません
+        - label: API キーや data/.env の中身を貼っていません
           required: true
